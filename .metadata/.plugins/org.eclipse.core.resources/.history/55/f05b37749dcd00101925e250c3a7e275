@@ -1,0 +1,25 @@
+package com.semanticsquare.thrillio;
+
+import com.semanticsquare.thrillio.Dao.BookmarkDao;
+import com.semanticsquare.thrillio.controller.BookmarkController;
+import com.semanticsquare.thrillio.controller.UserController;
+import com.semanticsquare.thrillio.entities.Bookmark;
+import com.semanticsquare.thrillio.entities.User;
+
+public class View {
+	
+	private static User[] users;
+	private static Bookmark[][] bookmarks;
+	
+	public static void setUserBookmarks() {
+		
+		users = UserController.getInstance().getUsers();
+		
+		bookmarks = BookmarkController.getInstance().getBookmarks();
+		
+		private int bookmarkTypeOffset = (int) Math.random() * DataStore.BOOKMARK_TYPES_COUNT;
+		
+		private int bookmarkOffset = (int) Math.random() * DataStore.BOOKMARK_COUNT_PER_TYPE;
+	}
+
+}

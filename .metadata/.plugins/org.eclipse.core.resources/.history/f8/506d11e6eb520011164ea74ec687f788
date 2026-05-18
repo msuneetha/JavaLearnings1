@@ -1,0 +1,48 @@
+package com.tourist.TouristApp.service;
+
+import java.util.List;
+
+import com.tourist.TouristApp.entity.Tourist;
+import com.tourist.TouristApp.repository.ITouristRepo;
+
+public class TouristService implements ITouristService
+{
+
+	private  ITouristRepo touristRepo;
+	
+	//constructor dependency injection
+	public TouristService(ITouristRepo touristRepo)
+	{
+		this.touristRepo = touristRepo;
+	}
+	@Override
+	public List<Tourist> getAllTourists() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateTourist(Tourist tourist) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Tourist getTouristById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateTouristById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteTouristById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

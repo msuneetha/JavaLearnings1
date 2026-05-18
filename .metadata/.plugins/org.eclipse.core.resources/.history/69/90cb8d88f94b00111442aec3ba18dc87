@@ -1,0 +1,33 @@
+package com.restaurantapp.controllers;
+
+
+import com.restaurantapp.restaurant.entity.Menu;
+import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+@Controller
+public class MenuController 
+{
+	private IRestaurantService<Menu, Integer> menuService;
+	
+	//dependency Injection via constructor
+	public MenuController(IRestaurantService<Menu, Integer> menuService)
+	{
+		this.menuService = menuService;
+	}
+	
+	@GetMapping('/menu')
+	public List<Menu> getAllMenuItems(Model model) 
+	{
+		List<Menu> items =  menuRestaurant.getAllMenuItems();
+		model.addAttribute("menuitems", items);
+		return "menu-list";
+	}
+	
+
+}

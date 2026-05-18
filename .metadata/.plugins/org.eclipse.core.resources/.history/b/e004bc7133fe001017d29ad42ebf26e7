@@ -1,0 +1,9 @@
+package com.semanticsquare.oops.DependencyInjection2;
+
+public class EngineeringCollege implements College{
+	
+	public void department() {
+		System.out.println("welcome to department");
+	}
+
+}

@@ -1,0 +1,41 @@
+package com.semanticsquare.GenericsDemo;
+
+interface Operation<T1, T2, T> {
+	  void performOperation(T1 firstVal, T2 secondVal, T a);
+}
+public class GenericsPractice {
+	
+	
+	public static void main(String[] args) {
+		Operation<Integer, Integer, Character> operate = new OperationPerformed<>();
+		
+		operate.performOperation(8 , 5, '*');
+	}
+}
+
+
+class OperationPerformed<T1 extends Number, T2 extends Number, T extends String> implements Operation<T1, T2, T> {
+	
+		T a;
+		T1 b;
+		T2 c;
+		
+	@Override
+	public void performOperation(T1 b, T2 c, T a) {
+		// TODO Auto-generated method stub
+		
+		switch (a.toString()) {
+		case "M": {
+			
+			System.out.println("You selected multiplication"+  b.doubleValue() * c.doubleValue());
+		}
+		case "A":{
+			
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + a);
+		}
+		System.out.println("You selected multiplication"+  b.doubleValue() * c.doubleValue());
+	}
+	
+}

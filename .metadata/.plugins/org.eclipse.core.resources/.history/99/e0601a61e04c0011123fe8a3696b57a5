@@ -1,0 +1,36 @@
+package com.restaurantapp.restaurant.controllers;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.model.OrderItems;
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+@Controller
+public class OrderController<T, ID> 
+{
+	
+	IRestaurantService<T, ID> menuList;
+		
+	public OrderController(IRestaurantService<T, ID> menuList) {
+		super();
+		this.menuList = menuList;
+	}
+
+
+
+	@GetMapping("/orderItem")
+	public String orderItems(Model model)
+	{
+		List<String> items =  menuList.getAllMenuItems().stream()
+														.map(p -> p.getDescription()).toList();	
+		items.forEach(p -> System.out.println(p));
+		model.addAttribute("orderedItem", new OrderItems(items));
+		return"order-items";
+	}
+
+}

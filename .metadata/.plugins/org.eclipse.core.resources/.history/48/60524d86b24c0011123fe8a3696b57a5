@@ -1,0 +1,87 @@
+package com.restaurantapp.restaurant.service;
+
+import java.util.List;
+
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.restaurantapp.restaurant.entities.Customer;
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.entities.Order;
+import com.restaurantapp.restaurant.model.Registration;
+import com.restaurantapp.restaurant.repository.ICustomer;
+import com.restaurantapp.restaurant.repository.IMenu;
+import com.restaurantapp.restaurant.repository.IOrder;
+
+@Service
+public class RestaurantService<T, ID> implements IRestaurantService<Object, Integer>
+
+{
+	
+	private ICustomer cust;
+	
+	private IMenu menu;
+	
+	private IOrder orders;
+	
+	public RestaurantService(ICustomer cust, IMenu menu, IOrder orders) {
+		super();
+		this.cust = cust;
+		this.menu = menu;
+		this.orders = orders;
+	}
+
+	@Override
+	public List<Menu> getAllMenuItems() {
+		System.out.println(menu);
+		return (List<Menu>) menu.findAll();
+	}
+
+	@Override
+	public List<Order> getAllCustomerOrder(Integer customerId) {
+		return orders.findAllByCustomerId(customerId);
+	}
+
+	//@SuppressWarnings("unchecked")
+	@Override
+	public String placeOrder(Order order) {
+		orders.save(order);
+		return "saved successfully";
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		
+		return (List<Customer>) cust.findAll();
+	}
+
+	@Override
+	public boolean customerLogin(String email, String password) 
+	{
+		System.out.println(email + password);
+		Customer cus =  (Customer) cust.findAllByEmailAndPassword(email, password);
+		
+		return (cus != null)? true : false;
+	}
+
+	@Override
+	public String  saveCustomer(Registration register) {
+		
+		System.out.println(register);
+		
+		Customer customer = new Customer();
+		
+		customer.setName(register.getName());
+		customer.setAddress(register.getAddress());
+		customer.setEmail(register.getEmail());
+		customer.setPassword(register.getPassword());
+		customer.setPhoneNumber(register.getPhoneNumber());
+		
+		cust.save(customer);
+		return "customer saved successfully";
+		
+	}
+	
+}

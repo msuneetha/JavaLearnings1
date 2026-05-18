@@ -1,0 +1,6 @@
+package src.com.semanticsquare.OOPSWithDependencyInjection;
+
+public interface Account {
+	double calculateAmount();
+
+}

@@ -1,0 +1,26 @@
+package com.restaurantapp.restaurant.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.restaurantapp.restaurant.entities.Customer;
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.entities.Order;
+import com.restaurantapp.restaurant.model.MenuItem;
+import com.restaurantapp.restaurant.model.OrderItems;
+import com.restaurantapp.restaurant.model.OrdersByCustomer;
+import com.restaurantapp.restaurant.model.Registration;
+
+@Service
+public interface IRestaurantService<T, ID> {
+	
+	public List<Menu> getAllMenuItems();
+	public List<Customer> getAllCustomers();
+	public List<Order> getAllCustomerOrder(Integer customerId);
+	public boolean customerLogin(String email, String password);
+	public String saveCustomer(Registration customer);
+	public String saveMenuItem(MenuItem menuItem);
+	public String saveOrder(OrderItems orderItem);
+	public List<OrdersByCustomer> getAllCustomerOrderByUserName(String email);
+}

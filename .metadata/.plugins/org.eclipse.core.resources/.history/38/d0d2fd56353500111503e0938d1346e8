@@ -1,0 +1,11 @@
+package com.learning;
+
+public class ATM extends Thread
+{
+	private HSBCBank bank;
+			
+		public ATM(HSBCBank bank) {
+			this.bank = bank;
+			
+		}
+}

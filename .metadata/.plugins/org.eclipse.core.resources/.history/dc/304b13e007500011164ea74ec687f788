@@ -1,0 +1,58 @@
+package com.restaurantapp.restaurant.controller;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import com.restaurantapp.restaurant.controllers.MenuController;
+import com.restaurantapp.restaurant.model.MenuItem;
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+@WebMvcTest(MenuController.class)
+public class RestaurantControllerTest<T, ID> 
+{
+	@Autowired
+	private MockMvc  mockMvc;
+	
+	@MockitoBean
+	private IRestaurantService<T, ID> menuService;
+	
+	@Test
+	public void testGetAllMenuItems() throws Exception
+	{
+		
+		List<MenuItem> mi = List.of(new MenuItem("test","snack",52.00,'v',true),
+				new MenuItem("test","dinner",52.00,'v',true));
+		
+		//mock the service method triggered
+		List<MenuItem> mo = (List<MenuItem>) Mockito.mock(menuService.getAllMenuItems(),mi);
+		
+		//Request object
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get("/index");
+		
+		
+		ResultActions res = mockMvc.perform(request);
+		
+		MvcResult result  = res.andReturn();
+		
+		MockHttpServletResponse response = result.getResponse();
+		
+		int status = response.getStatus();
+		
+		assertEquals(200,status);
+	}
+
+}

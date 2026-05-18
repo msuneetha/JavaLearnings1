@@ -1,0 +1,24 @@
+package com.restaurantapp.restaurant.model;
+
+public class OrdersByCustomer 
+{
+	private String itemName;
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	private double price;
+	@Override
+	public String toString() {
+		return "OrdersByCustomer [itemName=" + itemName + ", price=" + price + "]";
+	}
+	
+}

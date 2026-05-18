@@ -1,0 +1,58 @@
+package com.restaurantapp.restaurant.controllers;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.model.OrderItems;
+import com.restaurantapp.restaurant.model.OrdersByCustomer;
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class OrderController<T, ID> 
+{
+	
+	IRestaurantService<T, ID> menuList;
+		
+	public OrderController(IRestaurantService<T, ID> menuList) {
+		super();
+		this.menuList = menuList;
+	}
+
+
+
+	@GetMapping("/orderItem")
+	public String orderItems(Model model)
+	{
+		List<Menu> items =  menuList.getAllMenuItems();
+				//.stream().map(p -> p.getDescription()).toList();	
+		
+		model.addAttribute("orderedItem", new OrderItems(items));
+		
+		return"order-items";
+	}
+	
+	@PostMapping("/saveOrderItem")
+	public String saveOrder(@ModelAttribute OrderItems order, Model model, HttpSession session)
+	{
+		order.setUserName(session.getAttribute("username").toString());
+		menuList.saveOrder(order);
+		return "redirect:index";
+	}
+
+	@GetMapping("/ordersByCustId")
+	public String orderListByMe(HttpSession session, Model model)
+	{
+		OrdersByCustomer orders =  (OrdersByCustomer) menuList.getAllCustomerOrderByUserName(session.getAttribute("username").toString());
+		model.addAttribute("orderlist", orders);
+		
+		return "orderedByCustomer";
+	}
+}

@@ -1,0 +1,5 @@
+package com.restaurantapp.restaurant.controller;
+
+public class RestaurantControllerTest {
+
+}

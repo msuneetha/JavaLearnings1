@@ -1,0 +1,75 @@
+package com.semanticsquare.thrillio;
+
+import org.hamcrest.core.IsInstanceOf;
+
+import com.semanticsquare.thrillio.constants.KidFriendlyStatus;
+import com.semanticsquare.thrillio.constants.UserType;
+import com.semanticsquare.thrillio.controller.BookmarkController;
+import com.semanticsquare.thrillio.entities.Bookmark;
+import com.semanticsquare.thrillio.entities.User;
+import com.semanticsquare.thrillio.partner.Shareable;
+
+public class View {
+
+	//private static User[] users;
+	//private static Bookmark[][] bookmarks;
+
+	public static void browse(User user, Bookmark[][] bookmarks) {
+		System.out.println("\n" + user.getId() + " @ " + user.getEmail() + " is browing the bookmarks:");
+
+		int bookmarkCount = 0;
+
+		for (Bookmark[] bookmarkType : bookmarks) {
+
+			for (Bookmark bookmark : bookmarkType) {
+
+				if (user.getUserType().equals(UserType.EDITOR) || user.getUserType().equals(UserType.CHIEF_EDITOR)) {
+					if (bookmark.isKidFriendlyEligible()
+							&& bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.UNKNOWN)) {
+						String kidFriendlyStatus = getKidFriendlyDecision();
+						if (!kidFriendlyStatus.equals(KidFriendlyStatus.UNKNOWN)) {
+							BookmarkController.getInstance().setKidFriendlyStatus(kidFriendlyStatus, bookmark, user);
+						}
+					}
+					
+					//Share the bookmark
+					if(bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.APPROVED) && 
+							bookmark instanceof Shareable){
+						boolean isShared = getSharableDecision();
+						if(isShared) {
+							BookmarkController.getInstance().share(user, bookmark);
+						}
+					}
+				}
+				
+				if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT) {
+					boolean isBookMarked = getBookmarkDecision();
+
+					if (isBookMarked) {
+						bookmarkCount++;
+						BookmarkController.getInstance().saveUserBookmark(user, bookmark);
+
+						System.out.println("New Item Bookmarked..." + bookmark + "for user " + user);
+					}
+				}
+			}
+		}
+	}
+
+	private static boolean getSharableDecision() {
+		return Math.random() < 0.5 ? true : false;
+		
+	}
+
+	private static String getKidFriendlyDecision() {
+		double random = Math.random();
+
+		return ((random < 0.4) ? KidFriendlyStatus.APPROVED
+				: (random >= 0.4 && random < 0.8) ? KidFriendlyStatus.REJECTED : KidFriendlyStatus.UNKNOWN);
+	}
+
+	private static boolean getBookmarkDecision() {
+		return Math.random() < 0.5 ? true : false;
+
+	}
+}

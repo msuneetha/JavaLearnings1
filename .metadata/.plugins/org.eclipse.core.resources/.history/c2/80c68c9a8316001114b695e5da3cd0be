@@ -1,0 +1,22 @@
+package com.suneetha.oopsbasics;
+
+
+class Math{
+	
+	public static double pi = 3.14;
+	
+	int add() {};
+	int sub() {};
+	int div() {};
+	int mul() {};
+}
+
+class Add extends Math
+{
+	
+}
+
+
+public class InheritanceLesson {
+
+}

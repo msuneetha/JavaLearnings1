@@ -1,0 +1,8 @@
+package com.restaurantapp.restaurant.repository;
+
+import com.restaurantapp.restaurant.entities.Order;
+
+public interface IOrder extends IRestaurant<Order, Integer>
+{
+
+}

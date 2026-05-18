@@ -1,0 +1,95 @@
+package com.tourist.TouristApp.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.tourist.TouristApp.entity.Tourist;
+import com.tourist.TouristApp.repository.ITouristRepo;
+
+@Service
+public class TouristService implements ITouristService
+{
+
+	private  ITouristRepo touristRepo;
+	
+	//constructor dependency injection
+	public TouristService(ITouristRepo touristRepo)
+	{
+		this.touristRepo = touristRepo;
+	}
+	
+	@Override
+	public List<Tourist> getAllTourists() {
+		return touristRepo.findAll();
+	}
+
+	
+	@Override
+	public String updateTourist(Tourist tourist) {
+		
+		Optional<Tourist> tour = touristRepo.findById(tourist.getId());
+		if(tour.isPresent())
+		{
+			Tourist touristDb = tour.get();
+			touristDb.setBudget(tourist.getBudget());
+			touristDb.setCity(tourist.getCity());
+			touristDb.setPackageType(tourist.getPackageType());
+			touristDb.setName(tourist.getName());
+			
+			touristRepo.save(touristDb);
+			return "Data updated successfully for " + touristDb.getId();
+		}
+		return "An error when updating DB" + tourist.getId();
+		
+		
+	}
+
+	@Override
+	public Tourist getTouristById(Integer id) {
+		
+		Optional<Tourist> tourist =  touristRepo.findById(id);
+		if (tourist.isPresent())
+		{
+			return tourist.get();
+		}		
+			return new Tourist();		
+	}
+
+	@Override
+	public String updateTouristById(Integer id, Double budget) {
+		
+		Optional<Tourist> tourist = touristRepo.findById(id);
+		if(tourist.isPresent())
+		{
+			Tourist tour = tourist.get();
+			tour.setBudget(budget);
+			touristRepo.save(tour);
+			return "Tourist budget updated successfully";
+		}
+			return "cannot find tourist";
+		
+		
+		
+	}
+
+	@Override
+	public String deleteTouristById(Integer id) {
+		
+		Optional<Tourist> tourist = touristRepo.findById(id);
+		if(tourist.isPresent())
+		{
+		 touristRepo.deleteById(id);
+		 return "deleted successfully" + id;
+		}
+		return "Tourist not found in DB" + id;
+	}
+	@Override
+	public String registerTourist(Tourist tourist) {
+		
+		touristRepo.save(tourist);
+		return "Tourist added successfully";
+	}
+
+}

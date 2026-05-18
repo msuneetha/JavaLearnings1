@@ -1,0 +1,12 @@
+package com.semanticsquare.oops.DependencyInjection2;
+
+public class Department {
+	
+	private String name;
+	
+	public Department(String name) {
+		this.name = name;
+		
+	}
+
+}

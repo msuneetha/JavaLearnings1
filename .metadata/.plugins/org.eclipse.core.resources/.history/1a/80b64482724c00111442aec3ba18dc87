@@ -1,0 +1,38 @@
+package com.restaurantapp.restaurant.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+@Controller
+public class LoginController<T, ID> 
+{
+	@Autowired
+	private IRestaurantService<T, ID> customer;
+
+	@GetMapping("/login")
+	public String login(Model model)
+	{
+		return "login";
+	}
+	
+	
+	@PostMapping("/login")
+	public String loginPage(@RequestParam String username, @RequestParam String password,    Model model)
+	{
+		//System.out.println(model);
+		System.out.println(username + password);
+		boolean isValid = customer.customerLogin(username, password);
+		System.out.println(isValid);
+		if (isValid) 
+			return "redirect:/index";
+		else
+			//model.addAttribute("error", "Login credentials are wrong. Please enter again");
+			return "login/?error=true";
+	}
+}

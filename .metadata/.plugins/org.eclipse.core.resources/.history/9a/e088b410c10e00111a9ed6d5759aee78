@@ -1,0 +1,12 @@
+package com.semanticsquare.GenericsDemo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class lambdaPractice {
+	
+	List<Integer> list1 = new ArrayList<>();
+	
+	
+
+}

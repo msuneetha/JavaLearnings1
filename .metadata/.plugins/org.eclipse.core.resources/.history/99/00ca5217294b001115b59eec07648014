@@ -1,0 +1,73 @@
+package com.restaurantapp.restaurant.entities;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Order 
+{
+	private Integer customerId;
+	private Integer menuId;
+	private Integer orderId;
+	private Boolean isBillPaid;
+	
+	public Order() {
+		super();
+	}
+
+
+	public Order(Integer customerId, Integer menuId, Integer orderId, Boolean isBillPaid) {
+		super();
+		this.customerId = customerId;
+		this.menuId = menuId;
+		this.orderId = orderId;
+		this.isBillPaid = isBillPaid;
+	}
+
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+
+	public Integer getMenuId() {
+		return menuId;
+	}
+
+
+	public void setMenuId(Integer menuId) {
+		this.menuId = menuId;
+	}
+
+
+	public Integer getOrderId() {
+		return orderId;
+	}
+
+
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+
+
+	public Boolean getIsBillPaid() {
+		return isBillPaid;
+	}
+
+
+	public void setIsBillPaid(Boolean isBillPaid) {
+		this.isBillPaid = isBillPaid;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Order [customerId=" + customerId + ", menuId=" + menuId + ", orderId=" + orderId + ", isBillPaid="
+				+ isBillPaid + "]";
+	}
+	
+}

@@ -1,0 +1,21 @@
+INDEX VERSION 1.134
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2598940559.index
+\SpringCoreXMLFormat\src\main\java
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\96083892.index
+\Books\src\main\java
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\626607880.index
+\webmvc\src\main\java
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1498763224.index
+\webmvc\src\main\java
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3390678680.index
+\SpringCoreAnnotation1\src\main\java
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\339269363.index
+\webmvcqueryparam\src\main\java
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1791332347.index
+\My Learnings
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3592340415.index
+\SpringCore1\src\main\resources
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3518154377.index
+\SpringCore1\src\main\resources
+C:\Users\suneetha.thatavarthi.SPAR-US-00050\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\314613886.index
+\SpringCoreAnnotationImpl\src\main\java

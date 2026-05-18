@@ -1,0 +1,9 @@
+package src.com.semanticsquare.OOPSWithDependencyInjection;
+
+public class SavingsAccount implements Account{
+	
+	public double calculateAmount() {
+		return 3.5;
+	}
+
+}

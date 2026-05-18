@@ -1,0 +1,10 @@
+package com.learning;
+
+public class PhonePe extends HSBCBank
+{
+	public PhonePe(double amount) 
+	{
+		super(amount);
+	}
+
+}

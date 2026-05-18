@@ -1,0 +1,21 @@
+package com.learning;
+
+public class LaunchThread {
+	
+	public static void main(String[] args) {
+		System.out.println("main thread started");
+		HSBCBank bank = new PhonePe(4000); //polymorphism
+		
+		Thread a = new Thread(bank);
+		a.setName("PhonePe");
+		a.start();
+		
+		Thread b = new Thread(bank);
+		b.setName("ATM");
+		b.start();
+		System.out.println("main thread ended");
+		
+		
+	}
+
+}

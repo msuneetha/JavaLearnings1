@@ -1,0 +1,24 @@
+package com.semanticsquare.GenericsDemo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+//functional interface is introduced in java 8 and its used for Lambda expressions
+//lambad expressions are worked on the method on the interface
+
+@FunctionalInterface
+interface lambda{
+	void show();
+}
+
+public class lambdaPractice {
+	
+
+	
+	
+	}
+	
+	
+
+}

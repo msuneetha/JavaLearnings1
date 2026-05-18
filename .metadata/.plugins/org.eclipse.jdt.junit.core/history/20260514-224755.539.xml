@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="RestaurantApplicationTests" project="restaurant" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.restaurantapp.restaurant.RestaurantApplicationTests" time="0.84" displayname="RestaurantApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.restaurantapp.restaurant.RestaurantApplicationTests]">
+    <testcase name="contextLoads" classname="com.restaurantapp.restaurant.RestaurantApplicationTests" time="0.84" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.restaurantapp.restaurant.RestaurantApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

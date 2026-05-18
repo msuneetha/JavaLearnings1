@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<!--  to resolve the DI bean conflict either we can use autowire-candidate or primary -->
+    <bean id = "ai" class="com.telusko.controller.AIEngineering" autowire-candidate="false"></bean>
+    <bean id = "dev" class="com.telusko.controller.DevOps" autowire-candidate="true"></bean>
+    <bean id ="sd" class="com.telusko.controller.SystemDesign" autowire-candidate="false"></bean>
+    <bean id="config" class="com.telusko.main.Config"></bean>
+    
+    <!--  below are the manual way of injecting the dependencies via Setter or Constructor -->
+    
+    <!--  <bean id = "telusko" class="com.telusko.main.Telusko">-->
+    <!--  with below line we are injecting ai bean to the setter method of telusko and would launch the AIEngineering method-->
+   
+   
+   <!--  setter injection-->
+    <!--<property ref = "dev" name="course"></property>--> <!--  setter injection manually injecting ai to the course variable -->
+    
+    <!--  constructor injection -->
+    <!--  <constructor-arg ref = "dev" name="course"></constructor-arg>--><!--  injecting manually to the constructor  -->
+    
+    <!-- </bean> -->
+    
+    <!--  To generate automatic -->
+    <bean id = "telusko" class="com.telusko.main.Telusko" autowire="byType"><!--  by type is setter Injection -->
+    <!--  <bean id = "telusko" class="com.telusko.main.Telusko" autowire="constructor">--><!--  constructor Injection -->
+    
+    
+    </bean>
+    
+    
+</beans>

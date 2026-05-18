@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- bean definitions here -->
+    <!--  we are mentioning the spring IOC container that i am h=going to use annotation approach -->
+      <context:annotation-config></context:annotation-config>
+    
+    <!--  we are telling Spring IOC that base package to create the beans is com.telusko, which means all classes which are 
+    annotated spring will automatically create beans for that -->
+      <context:component-scan base-package="com.telusko"></context:component-scan>
+    
+    
+</beans>

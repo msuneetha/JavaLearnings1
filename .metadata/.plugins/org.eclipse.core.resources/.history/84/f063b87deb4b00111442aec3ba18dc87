@@ -1,0 +1,10 @@
+package com.restaurantapp.restaurant.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.restaurantapp.restaurant.entities.Menu;
+
+public interface IMenu extends CrudRepository<Menu, Integer> 
+{
+
+}

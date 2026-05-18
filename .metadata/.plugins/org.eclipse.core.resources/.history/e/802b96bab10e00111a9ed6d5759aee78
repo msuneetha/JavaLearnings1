@@ -1,0 +1,23 @@
+package com.semanticsquare.GenericsDemo;
+
+interface Operation<T> {
+	 T performOperation();
+}
+public class GenericsPractice {
+	
+	
+	public static void main(String[] args) {
+		
+		
+	}
+}
+
+class OperationPerformed implements Operation<T> {
+
+	@Override
+	public T performOperation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

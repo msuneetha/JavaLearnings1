@@ -1,0 +1,8 @@
+package com.learning;
+
+public class ATM extends HSBCBank
+{
+	public ATM(double amount) {
+		super(amount);
+	}
+}

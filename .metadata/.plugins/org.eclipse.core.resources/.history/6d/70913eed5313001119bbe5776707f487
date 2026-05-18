@@ -1,0 +1,35 @@
+
+class StaticDemo {
+	
+	static String test;
+	
+	static void test(){
+		System.out.println("I am in static method block");
+	}
+	//static initializer block
+	static 
+	{
+		System.out.println("I am in static initializer block");
+	}
+	//non static initializer block
+	{
+		System.out.println(" I am in java initializer block non static");
+	}
+	
+	public StaticDemo() {
+		System.out.println("I am in constructor");
+	}
+	
+	
+}
+public class staticdemo {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main method");
+		
+		StaticDemo demo = new StaticDemo();
+		
+	}
+
+}

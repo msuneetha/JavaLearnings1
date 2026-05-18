@@ -1,0 +1,5 @@
+package com.restaurantapp.restaurant.service;
+
+public interface IRestaurantService {
+
+}

@@ -1,0 +1,15 @@
+package com.restaurantapp.restaurant.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.restaurantapp.restaurant.entities.Order;
+
+@Repository
+public interface IRestaurantBaseRepo<T, ID> extends CrudRepository<T,ID>
+{
+
+	public List<Order> findAllById(Integer customerId);
+}

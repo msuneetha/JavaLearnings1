@@ -1,0 +1,86 @@
+package com.restaurantapp.restaurant.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Menu 
+{
+	@Id
+	@Column(name = "menuid")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	private String description;
+	private String typeOfItem;
+	private double price;
+	private char vegOrNonVeg;
+	private boolean isAvailable;
+	
+	
+	
+	public Menu() {
+		super();
+	}
+
+
+
+	public Menu(String description, String typeOfItem, double price, char vegOrNonVeg,
+			boolean isAvailable) {
+		super();
+		this.description = description;
+		this.typeOfItem = typeOfItem;
+		this.price = price;
+		this.vegOrNonVeg = vegOrNonVeg;
+		this.isAvailable = isAvailable;
+	}
+	
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getTypeOfItem() {
+		return typeOfItem;
+	}
+	public void setTypeOfItem(String typeOfItem) {
+		this.typeOfItem = typeOfItem;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public char getVegOrNonVeg() {
+		return vegOrNonVeg;
+	}
+	public void setVegOrNonVeg(char vegOrNonVeg) {
+		this.vegOrNonVeg = vegOrNonVeg;
+	}
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Menu [id=" + id + ", description=" + description + ", typeOfItem=" + typeOfItem + ", price="
+				+ price + ", vegOrNonVeg=" + vegOrNonVeg + ", isAvailable=" + isAvailable + "]";
+	}
+
+}

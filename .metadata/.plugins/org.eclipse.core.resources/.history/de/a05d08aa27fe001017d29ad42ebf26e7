@@ -1,0 +1,7 @@
+package com.semanticsquare.oops.DependencyInjection2;
+
+public interface College {
+	
+	void department(); 
+
+}

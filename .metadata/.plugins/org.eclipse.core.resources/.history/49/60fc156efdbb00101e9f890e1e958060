@@ -1,0 +1,16 @@
+package src.com.semanticsquare.basics.oops2;
+
+public class Editor extends Staff{
+	
+	public void printUserType() {
+		  System.out.println("Editor");
+		}
+	
+	void approveReview() {
+		System.out.println("Editor - approveReview");
+	}
+
+	void rejectReview() {
+		System.out.println("Editor - rejectReview");
+	}
+}

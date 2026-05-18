@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/saveItem}" th:object="${item}" method="post">
+
+    <div>
+        <label>Description:</label>
+        <textarea th:field="*{desctiption}" placeholder="Enter details"></textarea>
+    </div>
+
+    <div>
+        <label>Item Type:</label>
+        <input type="text" th:field="*{typeOfItem}" />
+    </div>
+
+    <div>
+        <label>Price:</label>
+        <input type="number" step="0.01" th:field="*{price}" />
+    </div>
+
+    <div>
+        <label>Category:</label>
+        <input type="radio" th:field="*{vegOrNonVeg}" value="V" id="veg" />
+        <label for="veg">Veg</label>
+        
+        <input type="radio" th:field="*{vegOrNonVeg}" value="N" id="nonveg" />
+        <label for="nonveg">Non-Veg</label>
+    </div>
+
+    <div>
+        <label>Available:</label>
+        <input type="checkbox" th:field="*{isAvailable}" />
+    </div>
+
+    <button type="submit">Save Item</button>
+</form>
+
+</body>
+</html>

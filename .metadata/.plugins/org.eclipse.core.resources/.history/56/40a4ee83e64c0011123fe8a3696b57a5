@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Menu Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .register-container { max-width: 500px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<div class="container register-container">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">Add Menu Item</h3>
+        </div>
+        <div class="card-body">
+           <div class="card-body">
+    		
+    	<form th:action="@{/saveOrderItem}" th:object="${orderedItem}" method="post">
+        	<div class="mb-3">
+            <label for="itemSelect" class="form-label">Choose a Menu Item:</label>
+            
+            <select id="itemSelect" class="form-select" th:field="*{selectedItem}">
+                <option value="" disabled selected>-- Select an item --</option>
+                <option th:each="name : ${orderedItem.menuItems}" 
+                        th:value="${name}" 
+                        th:text="${name}">
+                    Item Name
+                </option>
+            </select>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Add to Order</button>
+        </div>
+    </form>
+</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

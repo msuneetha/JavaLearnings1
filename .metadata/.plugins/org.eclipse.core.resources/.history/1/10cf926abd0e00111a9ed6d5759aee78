@@ -1,0 +1,7 @@
+package com.semanticsquare.GenericsDemo;
+
+public class lambdaPractice {
+	
+	List<Integer> list1 = new ArrayList<>();
+
+}

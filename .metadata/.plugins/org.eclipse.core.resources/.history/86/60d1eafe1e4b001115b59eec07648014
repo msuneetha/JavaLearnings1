@@ -1,0 +1,5 @@
+package com.restaurantapp.restaurant.entities;
+
+public class Order {
+
+}

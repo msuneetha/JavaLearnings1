@@ -1,0 +1,81 @@
+package com.tourist.TouristApp.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.tourist.TouristApp.entity.Tourist;
+import com.tourist.TouristApp.repository.ITouristRepo;
+
+@Service
+public class TouristService implements ITouristService
+{
+
+	private  ITouristRepo touristRepo;
+	
+	//constructor dependency injection
+	public TouristService(ITouristRepo touristRepo)
+	{
+		this.touristRepo = touristRepo;
+	}
+	@Override
+	public List<Tourist> getAllTourists() {
+		return touristRepo.findAll();
+	}
+
+	@Override
+	public String updateTourist(Tourist tourist) {
+		
+		
+		
+	}
+
+	@Override
+	public Tourist getTouristById(Integer id) {
+		// TODO Auto-generated method stub
+		Optional<Tourist> tourist =  touristRepo.findById(id);
+		if (tourist.isPresent())
+		{
+			return tourist.get();
+		}
+		else
+			
+		{
+			return new Tourist();
+			}
+		
+	}
+
+	@Override
+	public String updateTouristById(Integer id, Double budget) {
+		
+		Optional<Tourist> tourist = touristRepo.findById(id);
+		if(tourist.isPresent())
+		{
+			Tourist tour = tourist.get();
+			tour.setBudget(budget);
+			touristRepo.save(tour);
+		}
+		else
+		{
+			return "cannot find tourist";
+		}
+		
+		return "Tourist budget updated successfully";
+	}
+
+	@Override
+	public String deleteTouristById(Integer id) {
+		// TODO Auto-generated method stub
+		 touristRepo.deleteById(id);
+		 return "deleted successfully";
+	}
+	@Override
+	public String registerTourist(Tourist tourist) {
+		// TODO Auto-generated method stub
+		touristRepo.save(tourist);
+		return "Tourist added successfully";
+	}
+
+}

@@ -1,0 +1,53 @@
+package com.restaurantapp.restaurant.controllers;
+
+
+
+import org.springframework.ui.Model;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.model.MenuItem;
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+@Controller
+public class MenuController<T, ID> 
+{
+	@Autowired
+	private IRestaurantService<T, ID> menuService;
+	
+	//dependency Injection via constructor
+//	public MenuController(IRestaurantService<Menu, Integer> menuService)
+//	{
+//		this.menuService = menuService;
+//	}
+	
+	@GetMapping("/index")
+	public String getAllMenuItems(Model model) 
+	{
+		List<Menu> items =  menuService.getAllMenuItems();
+		model.addAttribute("menuItems", items);
+		return "menu-list";
+	}
+	
+	@GetMapping("/addMenu")
+	public String AddMenuItem(Model model)
+	{
+		return "addMenuItem";
+	}
+	
+	@PostMapping("/saveItem")
+	public String saveMenuItem(@ModelAttribute MenuItem menuItem, Model model)
+	{
+		menuService.saveMenuItem(menuItem);
+		return "redirect:/index";
+	}
+	
+
+}

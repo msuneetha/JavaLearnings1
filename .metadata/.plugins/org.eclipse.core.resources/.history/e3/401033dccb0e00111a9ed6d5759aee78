@@ -1,0 +1,17 @@
+package com.semanticsquare.GenericsDemo;
+
+@FunctionalInterface
+interface LambdaWithArg{
+	 int add(int a, int b);
+}
+
+public class LambdaWithArguments {
+	public static void main(String[] args) {
+		
+		//the below statement will create new interface object with inline implementation 
+		//of add (i,j) -> i+j; with i, j as parameters and would return i+j 
+		LambdaWithArg lam = (i,j) -> i+j;
+		System.out.println(lam.add(5,6));
+	}
+
+}

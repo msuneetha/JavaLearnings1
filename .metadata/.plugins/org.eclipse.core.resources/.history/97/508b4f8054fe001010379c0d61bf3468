@@ -1,0 +1,15 @@
+package src.com.semanticsquare.OOPSWithDependencyInjection;
+
+public abstract class Account {
+	
+	String accountType;
+	String accountNumber;
+	String typeOfTransaction;
+	
+	
+	abstract double calculateAmount();
+	abstract double deposit();
+	abstract double withdraw();
+	abstract double checkBalance();
+	abstract double fundTransfer();
+}

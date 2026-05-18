@@ -1,0 +1,7 @@
+package com.semanticsquare.oops.DependencyInjection2;
+
+public abstract class Department {
+	
+	public abstract void departmentName();
+
+}

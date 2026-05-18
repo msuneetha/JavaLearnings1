@@ -1,0 +1,11 @@
+package com.restaurantapp.restaurant.repository;
+
+import org.springframework.stereotype.Repository;
+
+import com.restaurantapp.restaurant.entities.Order;
+
+@Repository
+public interface IOrder extends IRestaurant<Order, Integer>
+{
+
+}

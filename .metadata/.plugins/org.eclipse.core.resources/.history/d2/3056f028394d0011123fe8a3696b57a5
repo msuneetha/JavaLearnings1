@@ -1,0 +1,44 @@
+package com.restaurantapp.restaurant.model;
+
+import java.util.List;
+
+import com.restaurantapp.restaurant.entities.Menu;
+
+public class OrderItems 
+{
+	private String selectedItemId;
+	private List<Menu> menuItems;
+	
+	public OrderItems()
+	{
+		
+	}
+	
+	public OrderItems(List<Menu> menuItems) {
+		super();
+		this.menuItems = menuItems;
+	}
+
+	public List<Menu> getMenuItems() {
+		return menuItems;
+	}
+
+	public void setMenuItems(List<Menu> menuItems) {
+		this.menuItems = menuItems;
+	}
+	
+	public String getSelectedItemId() {
+        return selectedItemId;
+    }
+
+    
+    public void setSelectedItemId(String selectedItemId) {
+        this.selectedItemId = selectedItemId;
+    }
+
+	@Override
+	public String toString() {
+		return "OrderItems [menuItems=" + menuItems + "]";
+	}
+
+}

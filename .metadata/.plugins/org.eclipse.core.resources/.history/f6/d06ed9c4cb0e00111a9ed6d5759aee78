@@ -1,0 +1,10 @@
+package com.semanticsquare.GenericsDemo;
+
+@FunctionalInterface
+interface LambdaWithArg{
+	 int add(int a, int b);
+}
+
+public class LambdaWithArguments {
+
+}

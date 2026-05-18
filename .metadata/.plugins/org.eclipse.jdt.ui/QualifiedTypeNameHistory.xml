@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="src.com.semanticsquare.basics.CustomerOrder"/>
+    <fullyQualifiedTypeName name="src.com.semanticsquare.basics.oops.p1.A1"/>
+    <fullyQualifiedTypeName name="src.com.semanticsquare.basics.oopsadvanced.SuperAbstract"/>
+    <fullyQualifiedTypeName name="src.com.semanticsquare.basics.oopsadvanced.ConcreteClass"/>
+    <fullyQualifiedTypeName name="src.com.semanticsquare.basics.oopsadvanced.SubAbstract"/>
+    <fullyQualifiedTypeName name="org.springframework.context.aot.ApplicationContextAotGenerator"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="com.telusko.controller.ControllerLayer"/>
+    <fullyQualifiedTypeName name="com.telusko.dao.RepositoryLayer"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="com.telusko.service.ServiceLayer"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.telusko.main.Telusko"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="com.telusko.repository.IProductRepo"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.telusko.service.IProductService"/>
+    <fullyQualifiedTypeName name="com.telusko.service.ProductService"/>
+    <fullyQualifiedTypeName name="com.telusko.databasedemo.Entity.Product"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="java.awt.MenuItem"/>
+    <fullyQualifiedTypeName name="com.restaurantapp.restaurant.model.MenuItem"/>
+    <fullyQualifiedTypeName name="com.restaurantapp.restaurant.service.IRestaurantService"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.restaurantapp.restaurant.entities.Order"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.restaurantapp.restaurant.model.OrdersByCustomer"/>
+</qualifiedTypeNameHistroy>

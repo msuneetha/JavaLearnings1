@@ -1,0 +1,22 @@
+package controllers;
+
+import java.awt.Menu;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+@Controller
+public class MenuController 
+{
+	private IRestaurantService<Menu, Integer> menuRestaurant;
+	
+	@GetMapping
+	public List<Menu> getAllMenuItems() 
+	{
+		return menuRestaurant.getAllMenuItems();
+	}
+	
+
+}

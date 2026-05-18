@@ -1,0 +1,13 @@
+spring.application.name=restaurant
+
+server.servlet.context-path=/restaurant/
+
+spring.datasource.url=jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databaseName=Restaurant;encrypt=true;trustServerCertificate=true;
+
+spring.datasource.username=root
+spring.datasource.password= root@123
+
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+# Bypasses the CamelCase-to-Underscore conversion
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+

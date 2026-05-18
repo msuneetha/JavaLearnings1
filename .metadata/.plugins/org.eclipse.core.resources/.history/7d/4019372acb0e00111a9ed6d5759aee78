@@ -1,0 +1,5 @@
+package com.semanticsquare.GenericsDemo;
+
+public class LambdaWithArguments {
+
+}

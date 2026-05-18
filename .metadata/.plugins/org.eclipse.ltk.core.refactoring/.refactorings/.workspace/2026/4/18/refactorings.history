@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Copy Project &apos;databasedemo&apos;" description="Copy Project &apos;databasedemo&apos;" destination="C:/Users/suneetha.thatavarthi.SPAR-US-00050/eclipse-workspace" element="/databasedemo" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="databasedemocustomfinder" stamp="1777583222689"/>&#x0A;<refactoring comment="Rename resource &apos;databasedemocustomfinder&apos; to &apos;databasedemocustomfind&apos;" description="Rename resource &apos;databasedemocustomfinder&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/databasedemocustomfinder" name="databasedemocustomfind" stamp="1777583297924" updateReferences="true"/>
+</session>

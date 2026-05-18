@@ -1,0 +1,5 @@
+package src.com.semanticsquare.OOPSWithDependencyInjection;
+
+public class SavingsAccount {
+
+}

@@ -1,0 +1,23 @@
+package com.restaurantapp.restaurant.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.assertj.MockMvcTester.MockMvcRequestBuilder;
+import org.springframework.test.web.servlet.client.MockMvcHttpConnector;
+
+@WebMvcTest
+public class RestaurantControllerTest 
+{
+	@Autowired
+	private MockMvc  mockMvc;
+	
+	public void getAllMenuItemsTest()
+	{
+		//Request builder
+		MockMvcRequestBuilder request = MockMvcRequestBuilder.get("/index");
+		
+		request.connect(null, null, null)
+	}
+
+}

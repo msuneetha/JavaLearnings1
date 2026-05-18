@@ -1,0 +1,52 @@
+package com.suneetha.oopsbasics;
+
+
+class Math{
+	
+	public static double pi = 3.14;
+	
+	 int add(int a, int b)
+	 {
+		System.out.println(" add 2 numbers");
+		return 0;
+	};
+	
+	 int sub(int a, int b) 
+	 {
+		System.out.println(" subtract 2 numbers");
+		return 0;
+	};
+	
+	int div(int a, int b) 
+	{
+		System.out.println(" divide 2 numbers");
+		return 0;
+	};
+	
+	int mul(int a, int b) 
+	{
+		System.out.println(" multiply 2 numbers");
+		return 0;
+	};
+}
+
+class Add extends Math
+{
+	
+	int add(int a, int b ) {
+		
+		return a+b;
+	}
+}
+
+
+public class InheritanceLesson {
+	
+	public static void main(String[] args) {
+		
+		Math m = new Add(); //run time Polymorphism
+		System.out.println(m.add(5, 6));
+		
+	}
+
+}

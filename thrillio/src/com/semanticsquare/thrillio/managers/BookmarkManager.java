@@ -1,0 +1,80 @@
+package com.semanticsquare.thrillio.managers;
+
+import java.util.List;
+
+import com.semanticsquare.thrillio.Dao.BookmarkDao;
+import com.semanticsquare.thrillio.entities.Book;
+import com.semanticsquare.thrillio.entities.Bookmark;
+import com.semanticsquare.thrillio.entities.Movie;
+import com.semanticsquare.thrillio.entities.User;
+import com.semanticsquare.thrillio.entities.UserBookmark;
+import com.semanticsquare.thrillio.entities.WebLink;
+
+public class BookmarkManager {
+
+	private static BookmarkManager instance = new BookmarkManager();
+
+	private BookmarkManager() {
+	};
+
+	public static BookmarkManager getInstance() {
+		return instance;
+	}
+	
+	//call db or datastore from manager classes
+	
+	public List<List<Bookmark>> getBookmarks() {
+		return BookmarkDao.getBookmarks();
+	}
+
+	public Book createBook(long id, String title, int publicationYear, String publisher,
+			String[] authors, String genre, double amazonRating) {
+
+		return new Book(id, title, publicationYear, publisher, authors, genre, amazonRating);
+
+	}
+
+	public Movie createMovie(long id, String title, int releaseYear, String[] cast,
+			String[] director, String genre, double imdbRating) {
+		
+		return new Movie(id, title, releaseYear, cast, director, genre, imdbRating);
+
+	}
+
+	public WebLink createWebLink(long id, String title, String url, String host) {
+		return new WebLink(id, title, url, host);
+
+	}
+	
+	public void saveUserBookmark(User user, Bookmark bookmark) {
+		
+		UserBookmark userBookmark = new UserBookmark();
+		userBookmark.setUser(user);
+		userBookmark.setBookMark(bookmark);
+		
+		BookmarkDao.saveUserBookmark(userBookmark);
+	}
+
+	public void setKidFriendlyStatus(String kidFriendlyStatus, Bookmark bookmark, User user) {
+		
+		bookmark.setKidFriendlyStatus(kidFriendlyStatus);
+		bookmark.setKidFriendlyMarkedBy(user);
+		System.out.println(
+				"Book mark added as new Kidfriendly..." + kidFriendlyStatus + " for bookmark: " + bookmark + "by User:" + user.getEmail());
+		
+	}
+	// TODO: Below code simulates to write data to file
+
+	public void share(User user, Bookmark bookmark) {
+		bookmark.setSharedBy(user);
+		System.out.println(" This bookmark " + bookmark + "shared by: " + user.getEmail());
+		
+		if(bookmark instanceof Book) {
+			System.out.println("\n" + ((Book) bookmark).getItemInfo());
+		}
+		if(bookmark instanceof WebLink) {
+			System.out.println("\n" + ((WebLink) bookmark).getItemInfo());
+		}
+	}
+
+}

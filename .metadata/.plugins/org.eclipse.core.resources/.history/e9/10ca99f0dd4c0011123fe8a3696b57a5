@@ -1,0 +1,26 @@
+package com.restaurantapp.restaurant.controllers;
+
+import java.util.List;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.model.OrderItems;
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+public class OrderController<T, ID> 
+{
+	IRestaurantService<T, ID> menuList;
+	
+	@GetMapping("/orderItem")
+	public String orderItems(Model model)
+	{
+		List<String> items =  menuList.getAllMenuItems().stream()
+														.map(p -> p.getDescription()).toList();
+		
+		model.addAttribute("orderedItem", new OrderItems());
+		return"order-item";
+	}
+
+}

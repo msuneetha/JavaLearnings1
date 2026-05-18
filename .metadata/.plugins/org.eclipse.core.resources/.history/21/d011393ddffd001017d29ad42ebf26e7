@@ -1,0 +1,5 @@
+package com.semanticsquare.oops.DependencyInjection2;
+
+public class EngineeringCollege implements College{
+
+}

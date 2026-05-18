@@ -1,0 +1,66 @@
+package com.semanticsquare.GenericsDemo;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenericsDemo {
+
+	public static void main(String[] args) {
+		
+		List<Books> listBooks = new ArrayList<>();
+		
+		Books book = new Books();
+		book.setAuthor("james");
+		book.setRating(5);
+		book.setImageUrl("test");
+		
+		listBooks.add(book);
+		
+		Books book1 = new Books();
+		book1.setAuthor("james2");
+		book1.setRating(5);
+		book1.setImageUrl("test2");
+		listBooks.add(book1);
+		
+		// TODO Auto-generated method stub
+		
+		Generics<String> stringVar = new GenericClass<String>();
+		stringVar.set("Hello world");
+		System.out.println("value is "+ stringVar.get());
+		
+		Generics<Integer> intVar = new GenericClass<Integer>();
+		intVar.set(55);
+		System.out.println("value is "+ intVar.get());
+		
+		Generics<List<Books>> objVar = new GenericClass<List<Books>>();
+		
+		objVar.set(listBooks);
+					
+		System.out.println("value is "+ objVar.get());
+	}
+
+
+}
+
+//this is creating generic interface type where we can pass different parameters
+
+interface Generics<T> {
+	void set(T a);
+	T get();
+}
+
+
+class GenericClass<T> implements Generics<T>{
+	
+	private T a;
+	
+	public void set(T a) {
+		this.a = a;
+		
+	}
+	public T get() {
+		return a;
+	}
+}
+

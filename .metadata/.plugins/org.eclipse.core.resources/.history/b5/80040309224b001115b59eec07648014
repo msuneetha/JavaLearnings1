@@ -1,0 +1,9 @@
+package com.restaurantapp.restaurant.repository;
+
+import com.restaurantapp.restaurant.entities.Customer;
+
+@Repository
+public interface ICustomer extends IRestaurant<Customer, Integer>
+{
+
+}

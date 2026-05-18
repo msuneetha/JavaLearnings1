@@ -1,0 +1,16 @@
+package com.restaurantapp.restaurant.controllers;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class OrderController 
+{
+	
+	@GetMapping("/orderItem")
+	public String orderItems(Model model)
+	{
+		model.addAttribute("orderedItem", OrderItems);
+		return"order-item";
+	}
+
+}

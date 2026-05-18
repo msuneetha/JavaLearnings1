@@ -1,0 +1,11 @@
+package com.semanticsquare.oops.DependencyInjection2;
+
+public class College {
+	
+	private final Department department;
+	
+	
+	
+	
+
+}

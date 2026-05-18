@@ -1,0 +1,32 @@
+package com.semanticsquare.GenericsDemo;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamDemo {
+	
+	public static void main(String[] args) {
+		
+		List<Integer> list = new ArrayList<>(Arrays.asList(2,5,7,8,9,1,4,3));
+		
+		//stream API to process the input data without impacting or touching 
+		// the original list 
+		System.out.println(list.stream().sorted().toList());
+		
+		//stream is a single line statement meaning once stream is used its done 
+		// we cannot process stream any more 
+		//so we can process stream with any number of functions in same line with operations 
+		//in sequence
+		System.out.println(list.stream().sorted()
+					.filter(n -> n%2 == 0).toList());
+		list.stream().sorted();
+		
+		//for each to print the sysout foreach is a void method 
+		list.forEach(n -> System.out.println(n));
+		
+		
+	}
+
+}

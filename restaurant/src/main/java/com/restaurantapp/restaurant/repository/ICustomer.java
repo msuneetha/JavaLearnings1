@@ -1,0 +1,17 @@
+package com.restaurantapp.restaurant.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.restaurantapp.restaurant.entities.Customer;
+
+@Repository
+public interface ICustomer extends CrudRepository<Customer, Integer>
+{
+
+	public Customer findAllByEmailAndPassword(String email, String password);
+	
+	public List<Customer> findAllByEmail(String email);
+}

@@ -1,0 +1,7 @@
+package com.restaurantapp.restaurant.model;
+
+public class OrdersByCustomer 
+{
+	
+
+}

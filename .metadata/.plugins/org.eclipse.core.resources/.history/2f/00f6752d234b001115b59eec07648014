@@ -1,0 +1,17 @@
+package com.restaurantapp.restaurant.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.entities.Order;
+
+@Service
+public interface IRestaurantService {
+	
+	public List<Menu> getAllMenuItems();
+	public List<Order> getAllCustomerOrder();
+	public String placeOrder(Order order);
+
+}

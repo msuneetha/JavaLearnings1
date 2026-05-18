@@ -1,0 +1,13 @@
+package com.semanticsquare.GenericsDemo;
+
+interface Operation<T> {
+	 public T performOperation();
+}
+public class GenericsPractice {
+	
+	
+	public static void main(String[] args) {
+		
+		
+	}
+}

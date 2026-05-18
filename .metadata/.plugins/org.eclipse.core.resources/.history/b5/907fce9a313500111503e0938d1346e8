@@ -1,0 +1,24 @@
+package com.learning;
+
+public class HSBCBank extends Thread
+{
+	private double amount;
+	
+	public HSBCBank(double amount)
+	{
+		this.amount = amount;
+	}
+	public void balanceCheck() {
+		System.out.println("The balance for the account is " + this.amount);
+	}
+	public void withDrawl (double amt) {
+		this.amount -=  amt;
+		System.out.println("The balance amount after with drawl amount is " + this.amount);
+	}
+	
+	public void deposit(double amount)
+	{
+		this.amount += amount;
+		System.out.println("The balance after deposit is " + this.amount);
+	}
+}

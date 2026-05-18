@@ -1,0 +1,19 @@
+package src.com.semanticsquare.basics.oops2;
+
+
+
+public class UserTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		User u = new User();		
+		User s = new Staff();
+		User e = new Editor();
+		ChiefEditor ce = new ChiefEditor();
+		
+		s.postAReview();
+
+	}
+
+}

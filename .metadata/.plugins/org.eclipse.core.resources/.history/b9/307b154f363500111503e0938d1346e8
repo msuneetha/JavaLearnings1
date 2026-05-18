@@ -1,0 +1,15 @@
+package com.learning;
+
+public class PhonePe extends Thread
+{
+	HSBCBank bank = new HSBCBank();
+	
+	public PhonePe(HSBCBank bank) 
+	{
+		this.bank = bank;
+		
+	}
+	
+	
+
+}

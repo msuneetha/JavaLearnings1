@@ -1,0 +1,5 @@
+package com.restaurantapp.controllers;
+
+public class CustomerController {
+
+}

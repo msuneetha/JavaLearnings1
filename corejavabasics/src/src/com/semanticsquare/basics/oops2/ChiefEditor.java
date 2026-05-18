@@ -1,0 +1,5 @@
+package src.com.semanticsquare.basics.oops2;
+
+public class ChiefEditor extends Editor{
+
+}

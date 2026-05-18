@@ -1,0 +1,10 @@
+package com.semanticsquare.oops.Insurance;
+
+public class HMSTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

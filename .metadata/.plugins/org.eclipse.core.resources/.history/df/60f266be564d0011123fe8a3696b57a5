@@ -1,0 +1,128 @@
+package com.restaurantapp.restaurant.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.restaurantapp.restaurant.entities.Customer;
+import com.restaurantapp.restaurant.entities.Menu;
+import com.restaurantapp.restaurant.entities.Order;
+import com.restaurantapp.restaurant.model.MenuItem;
+import com.restaurantapp.restaurant.model.OrderItems;
+import com.restaurantapp.restaurant.model.OrdersByCustomer;
+import com.restaurantapp.restaurant.model.Registration;
+import com.restaurantapp.restaurant.repository.ICustomer;
+import com.restaurantapp.restaurant.repository.IMenu;
+import com.restaurantapp.restaurant.repository.IOrder;
+
+@Service
+public class RestaurantService<T, ID> implements IRestaurantService<Object, Integer>
+
+{
+	
+	private ICustomer cust;
+	
+	private IMenu menu;
+	
+	private IOrder orders;
+	
+	public RestaurantService(ICustomer cust, IMenu menu, IOrder orders) {
+		super();
+		this.cust = cust;
+		this.menu = menu;
+		this.orders = orders;
+	}
+
+	@Override
+	public List<Menu> getAllMenuItems() {
+		System.out.println(menu);
+		return (List<Menu>) menu.findAll();
+	}
+
+	@Override
+	public List<Order> getAllCustomerOrder(Integer customerId) {
+		return orders.findAllByCustomerId(customerId);
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		
+		return (List<Customer>) cust.findAll();
+	}
+
+	@Override
+	public boolean customerLogin(String email, String password) 
+	{
+		System.out.println(email + password);
+		Customer cus =  (Customer) cust.findAllByEmailAndPassword(email, password);
+		
+		return (cus != null)? true : false;
+	}
+
+	@Override
+	public String  saveCustomer(Registration register) {
+		
+		System.out.println(register);
+		
+		Customer customer = new Customer();
+		
+		customer.setName(register.getName());
+		customer.setAddress(register.getAddress());
+		customer.setEmail(register.getEmail());
+		customer.setPassword(register.getPassword());
+		customer.setPhoneNumber(register.getPhoneNumber());
+		
+		cust.save(customer);
+		return "customer saved successfully";
+		
+	}
+
+	@Override
+	public String saveMenuItem(MenuItem menuItem) 
+	{
+		Menu newItem = new Menu(menuItem.getDescription(), menuItem.getTypeOfItem(), menuItem.getPrice(),
+				menuItem.getVegOrNonVeg(), menuItem.getAvailable());
+		menu.save(newItem);
+		return "Item saved successfully";
+	}
+
+	@Override
+	public String saveOrder(OrderItems orderItem) {
+		//get customer id from user name 
+		List<Customer> customerList =   cust.findAllByEmail(orderItem.getUserName());
+		if (customerList.size() > 0 )
+		{
+			Order orderedItem = new Order(customerList.get(0).getId(),orderItem.getSelectedItemId(), true);
+			orders.save(orderedItem);
+			return "Order saved successfully";
+		}
+		else
+		{
+			return "Failed to save the order";
+		}
+	}
+
+	@Override
+	public List<OrdersByCustomer> getAllCustomerOrderByUserName(String email) {
+
+
+		Integer custId = cust.findAllByEmail(email).get(0).getId();
+		System.out.println("customer id " + custId);
+		List<OrdersByCustomer> ocList = orders.findAllByCustomerId(custId).stream()
+										.map(ord -> menu.findAllById(ord.getMenuId()))
+										.map(me -> {											
+												OrdersByCustomer oc = new OrdersByCustomer();
+												oc.setItemName(me.getDescription());
+												oc.setPrice(me.getPrice());
+												return oc;
+										})
+										.collect(Collectors.toList());		
+		return ocList;
+	}
+	
+}

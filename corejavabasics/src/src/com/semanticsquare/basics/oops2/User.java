@@ -1,0 +1,70 @@
+package src.com.semanticsquare.basics.oops2;
+
+
+
+public class User {
+	
+	private long id;
+	
+	private String firstName;
+	
+	private String lastName;
+	
+	private String gender;
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName =  firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName =  lastName;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender =  gender;
+	}
+	
+	public void printUserType() {
+		System.out.println("User");
+	}
+	
+	public void saveWebLink() {
+		System.out.println("User saveweblink");
+		postAReview();
+	}
+	
+	public void saveMovie() {
+		System.out.println("User saveMovie");
+	}
+	
+	public void saveBook() {
+		System.out.println("User saveBook");
+	}
+	
+	public void rateBookMark() {
+		System.out.println("User rateBookMark");
+	}
+	
+	public void postAReview() {
+		System.out.println("User postAReview");
+	}
+}

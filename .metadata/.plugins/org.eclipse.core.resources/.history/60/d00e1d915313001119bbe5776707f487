@@ -1,0 +1,20 @@
+
+class StaticDemo {
+	
+	static String test;
+	
+	{
+		test = "hello world";
+	}
+	
+	
+}
+public class staticdemo {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main method");
+		
+	}
+
+}

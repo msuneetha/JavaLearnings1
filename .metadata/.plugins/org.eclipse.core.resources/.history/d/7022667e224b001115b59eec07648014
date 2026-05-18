@@ -1,0 +1,8 @@
+package com.restaurantapp.restaurant.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface IRestaurantService {
+
+}

@@ -1,0 +1,24 @@
+
+class StaticDemo {
+	
+	static String test;
+	
+	static void test(){
+		System.out.println("I am in static method block");
+	}
+	
+	{
+		test = "hello world";
+	}
+	
+	
+}
+public class staticdemo {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main method");
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.restaurantapp.restaurant.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.restaurantapp.restaurant.service.IRestaurantService;
+
+@Controller
+public class LoginController<T, ID> 
+{
+	@Autowired
+	private IRestaurantService<T, ID> customer;
+
+	@GetMapping("/login")
+	public String login(Model model)
+	{
+		return "login";
+	}
+	
+	
+	@PostMapping("/login")
+	public String loginPage(Model model)
+	{
+		String email = (String) model.getAttribute("email");
+		String password = (String) model.getAttribute("password");
+		System.out.println(email + password);
+		customer.customerLogin(email, password);
+		return "index";
+	}
+}

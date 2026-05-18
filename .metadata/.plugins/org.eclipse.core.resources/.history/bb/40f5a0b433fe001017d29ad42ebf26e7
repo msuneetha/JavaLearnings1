@@ -1,0 +1,14 @@
+package com.semanticsquare.oops.DependencyInjection2;
+
+public class EngineeringCollege {
+	
+	public static void main(String args[]) {
+		 int name;
+		 
+		 Deprtment department = new Department();
+		 
+		 College department = new College();
+		 
+	}
+
+}

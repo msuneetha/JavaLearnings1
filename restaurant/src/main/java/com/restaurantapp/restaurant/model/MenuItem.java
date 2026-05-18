@@ -1,0 +1,63 @@
+package com.restaurantapp.restaurant.model;
+
+public class MenuItem 
+{
+	private String description;
+	private String typeOfItem;
+	private Double price;
+	private char vegOrNonVeg;
+	private boolean available;
+	
+	public MenuItem()
+	{
+		
+	}
+	
+	public MenuItem(String description, String typeOfItem, Double price, char vegOrNonVeg, boolean available) {
+		super();
+		this.description = description;
+		this.typeOfItem = typeOfItem;
+		this.price = price;
+		this.vegOrNonVeg = vegOrNonVeg;
+		this.available = available;
+	}
+	
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getTypeOfItem() {
+		return typeOfItem;
+	}
+	public void setTypeOfItem(String typeOfItem) {
+		this.typeOfItem = typeOfItem;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public char getVegOrNonVeg() {
+		return vegOrNonVeg;
+	}
+	public void setVegOrNonVeg(char vegOrNonVeg) {
+		this.vegOrNonVeg = vegOrNonVeg;
+	}
+	public boolean getAvailable() {
+		return available;
+	}
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
+	@Override
+	public String toString() {
+		return "MenuItem [description=" + description + ", typeOfItem=" + typeOfItem + ", price=" + price
+				+ ", vegOrNonVeg=" + vegOrNonVeg + ", isAvailable=" + available + "]";
+	}
+
+}

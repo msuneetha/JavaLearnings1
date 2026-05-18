@@ -1,0 +1,14 @@
+package com.learning;
+
+public class LaunchThread {
+	
+	public static void main(String[] args) {
+		
+		HSBCBank bank = new PhonePe(4000);
+		
+		Thread a = new Thread();
+		
+		
+	}
+
+}
